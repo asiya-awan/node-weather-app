@@ -23,7 +23,6 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req,res) => {
     res.render('index', {
         title: 'Weather App',
-        location: 'Winnipeg',
         createdBy: 'Asia Awan'
     })
 })
@@ -40,7 +39,7 @@ app.get('/help', (req,res) => {
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Asia Awan',
+        createdBy: 'Asia Awan',
         errorMessage: 'Help article not found.'
     })
 })
@@ -51,30 +50,6 @@ app.get('/about', (req,res) => {
         createdBy: 'Asia Awan'
     })
 })
-
-// app.get('', (req, res) => {
-//     res.send('Hello express');
-// })
-
-// app.get('/help', (req, res) => {
-    // res.send([
-    //     {
-    //         name: 'Asia',
-    //         age:32
-    //     },
-    //     {
-    //         name: 'Nazneen',
-    //         age:28
-    //     }
-    // ])
-    //res.send('help.html')
-// })
-
-
-// app.get('/about', (req,res) => {
-//     res.send('<h1>About page</h1>')
-   
-//  })
 
 app.get('/weather', (req,res) => {
     if(!req.query.address){
@@ -120,13 +95,11 @@ app.get('/products', (req, res) => {
 app.get('*', (req,res) => {
     res.render('404', {
         title: '404',
-        name: 'Asia Awan',
+        createdBy: 'Asia Awan',
         errorMessage: 'Page not found.'
     })
 })
-//app.com
-//app.com/help
-//app.com/about
+
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`)
